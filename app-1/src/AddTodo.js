@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function AddTodo() {
+const AddTodo = (props) => {
+  const [userInput, setUserInput] = useState('')
+
+  function handleAddTodo(e) {
+    e.preventDefault()
+    props.addTodo(userInput)
+    setUserInput('')
+  };
+
   return(
-    <div>
+    <form onSubmit={handleAddTodo}>
       <input
         placeholder='Add a todo!'
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
       />
       <button>Submit</button>
-    </div>
-  );
+    </form>
+  )
 };
 
 export default AddTodo;

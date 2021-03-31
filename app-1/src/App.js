@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import List from './List';
 import AddTodo from './AddTodo';
 import './App.css';
 
 
 function App() {
+  const [todos, setTodos] = useState([])
+
+  function addTodo(item) {
+    const newTodos = [...todos, item]
+    setTodos(newTodos)
+  };
+
   return (
     <div className="App">
-      <AddTodo />
-      <List />
+      <AddTodo addTodo={addTodo} />
+      <List list={todos}/>
     </div>
   );
 };
