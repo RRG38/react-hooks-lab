@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
 
-const AddTodo = (props) => {
-  const [userInput, setUserInput] = useState('')
+const AddTodo = ({addTodo}) => {
+    const [userInput, setUserInput ] = useState('');
 
-  function handleAddTodo(e) {
-    e.preventDefault()
-    props.addTodo(userInput)
-    setUserInput('')
-  };
+    const handleInput = (e) => {
+        setUserInput(e.target.value);
+    }
 
-  return(
-    <form onSubmit={handleAddTodo}>
-      <input
-        placeholder='Add a todo!'
-        value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}
-      />
-      <button>Submit</button>
-    </form>
-  )
-};
+    return (
+        <>
+        <input value={userInput} onChange={handleInput} />
+        <button onClick={() => addTodo(userInput)}>ADD</button>
+        </>
+    )
+}
 
 export default AddTodo;

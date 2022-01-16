@@ -1,5 +1,5 @@
-import React from 'react';
-import Todo from './Todo';
+import React from 'react'
+import Todo from './Todo'
 
 const List = (props) => {
   return (
@@ -8,7 +8,6 @@ const List = (props) => {
         return <Todo item={item} key={index} />
       })}
     </div>
-  );
-};
-
-export default List;
+  )
+}
+export default List
